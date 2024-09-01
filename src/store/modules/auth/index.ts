@@ -4,7 +4,7 @@ import { defineStore } from 'pinia';
 import { useLoading } from '@sa/hooks';
 import { SetupStoreId } from '@/enum';
 import { useRouterPush } from '@/hooks/common/router';
-import { fetchGetUserInfo, fetchLogin } from '@/service/api';
+import { fetchChangePassword, fetchGetUserInfo, fetchLogin } from '@/service/api';
 import { localStg } from '@/utils/storage';
 import { $t } from '@/locales';
 import { useRouteStore } from '../route';
@@ -130,6 +130,19 @@ export const useAuthStore = defineStore(SetupStoreId.Auth, () => {
     }
   }
 
+  /**
+   * changePassword
+   *
+   * @param oldPassword 旧密码
+   * @param newPassword 新密码
+   * @param confirmPassword 确认密码
+   */
+  async function changePassword(oldPassword: string, newPassword: string, confirmPassword: string) {
+    startLoading();
+    await fetchChangePassword(oldPassword, newPassword, confirmPassword);
+    endLoading();
+  }
+
   return {
     token,
     userInfo,
@@ -138,6 +151,7 @@ export const useAuthStore = defineStore(SetupStoreId.Auth, () => {
     loginLoading,
     resetStore,
     login,
-    initUserInfo
+    initUserInfo,
+    changePassword
   };
 });

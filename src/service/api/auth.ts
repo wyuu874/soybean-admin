@@ -46,3 +46,48 @@ export function fetchRefreshToken(refreshToken: string) {
 export function fetchCustomBackendError(code: string, msg: string) {
   return request({ url: '/auth/error', params: { code, msg } });
 }
+
+/**
+ * Change password
+ *
+ * @param oldPassword 旧密码
+ * @param newPassword 新密码
+ * @param confirmPassword 确认密码
+ */
+export function fetchChangePassword(oldPassword: string, newPassword: string, confirmPassword: string) {
+  return request({
+    url: '/auth/password',
+    method: 'put',
+    data: {
+      oldPassword,
+      newPassword,
+      confirmPassword
+    }
+  });
+}
+
+/**
+ * GetLoginLogList
+ *
+ * @param params 'current' | 'size' | 'ip' | 'dateRange'
+ */
+export function fetchGetLoginLogList(params?: Api.Auth.LoginLogSearchParams) {
+  return request<Api.Auth.LoginLogList>({
+    url: '/auth/login-logs',
+    method: 'get',
+    params
+  });
+}
+
+/**
+ * GetOperationlogList
+ *
+ * @param params 'current' | 'size' | 'ip' | 'behavior' | 'object' | 'dateRange'
+ */
+export function fetchGetOperationlogList(params?: Api.Auth.OperationLogSearchParams) {
+  return request<Api.Auth.OperationLogList>({
+    url: '/auth/operation-logs',
+    method: 'get',
+    params
+  });
+}

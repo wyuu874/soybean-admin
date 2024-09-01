@@ -154,7 +154,8 @@ const local: App.I18n.Schema = {
     404: '页面不存在',
     500: '服务器错误',
     'iframe-page': '外链页面',
-    home: '首页'
+    home: '首页',
+    'user-center': '个人中心'
   },
   page: {
     login: {
@@ -231,6 +232,50 @@ const local: App.I18n.Schema = {
         desc5: 'Soybean 刚才把工作台页面随便写了一些，凑合能看了！'
       },
       creativity: '创意'
+    },
+    userCenter: {
+      changePassword: {
+        title: '修改密码',
+        form: {
+          oldPassword: {
+            title: '旧密码',
+            placeholder: '请输入旧密码'
+          },
+          newPassword: {
+            title: '新密码',
+            placeholder: '请输入新密码'
+          },
+          confirmPassword: {
+            title: '确认密码',
+            placeholder: '请输入确认密码'
+          }
+        }
+      },
+      loginLog: {
+        title: '登录日志',
+        ip: 'IP',
+        device: '登录设备',
+        createTime: '登录时间',
+        form: {
+          ip: '请输入IP'
+        }
+      },
+      operationLog: {
+        title: '操作日志',
+        ip: 'IP',
+        device: '操作设备',
+        createTime: '操作时间',
+        behavior: '操作行为',
+        object: '操作对象',
+        form: {
+          ip: '请输入IP',
+          behavior: '请选择操作行为',
+          object: '请输入操作对象'
+        },
+        behaviorOption: {
+          changePassword: '修改密码'
+        }
+      }
     }
   },
   form: {

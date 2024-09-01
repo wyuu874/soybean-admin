@@ -18,7 +18,7 @@ function loginOrRegister() {
   toLogin();
 }
 
-type DropdownKey = 'logout';
+type DropdownKey = 'user-center' | 'logout';
 
 type DropdownOption =
   | {
@@ -33,6 +33,11 @@ type DropdownOption =
 
 const options = computed(() => {
   const opts: DropdownOption[] = [
+    {
+      label: $t('common.userCenter'),
+      key: 'user-center',
+      icon: SvgIconVNode({ icon: 'ph:user-circle', fontSize: 18 })
+    },
     {
       label: $t('common.logout'),
       key: 'logout',
@@ -67,7 +72,7 @@ function handleDropdown(key: DropdownKey) {
 
 <template>
   <NButton v-if="!authStore.isLogin" quaternary @click="loginOrRegister">
-    {{ $t('page.login.common.loginOrRegister') }}
+    {{ $t('route.login') }}
   </NButton>
   <NDropdown v-else placement="bottom" trigger="click" :options="options" @select="handleDropdown">
     <div>

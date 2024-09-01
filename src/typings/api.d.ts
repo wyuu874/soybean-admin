@@ -65,6 +65,42 @@ declare namespace Api {
       roles: string[];
       buttons: string[];
     }
+
+    /** login log */
+    type LoginLog = Common.CommonRecord<{
+      ip: string; // IP
+      platform: string; // 平台
+      os: string; // 操作系统
+      browser: string; // 浏览器
+      dateRange: string; // 登录时间范围
+    }>;
+
+    /** login log search params */
+    type LoginLogSearchParams = CommonType.RecordNullable<
+      Pick<Api.Auth.LoginLog, 'ip' | 'dateRange'> & Common.CommonSearchParams
+    >;
+
+    /** login log list */
+    type LoginLogList = Common.PaginatingQueryRecord<LoginLog>;
+
+    /** operation log */
+    type OperationLog = Common.CommonRecord<{
+      ip: string; // IP
+      platform: string; // 平台
+      os: string; // 操作系统
+      browser: string; // 浏览器
+      behavior: string; // 操作行为
+      object: string; // 操作对象
+      dateRange: string; // 操作时间范围
+    }>;
+
+    /** operation log search params */
+    type OperationLogSearchParams = CommonType.RecordNullable<
+      Pick<Api.Auth.OperationLog, 'ip' | 'behavior' | 'object' | 'dateRange'> & Common.CommonSearchParams
+    >;
+
+    /** operation log list */
+    type OperationLogList = Common.PaginatingQueryRecord<OperationLog>;
   }
 
   /**

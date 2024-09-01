@@ -154,7 +154,8 @@ const local: App.I18n.Schema = {
     404: 'Page Not Found',
     500: 'Server Error',
     'iframe-page': 'Iframe',
-    home: 'Home'
+    home: 'Home',
+    'user-center': 'User Center'
   },
   page: {
     login: {
@@ -231,6 +232,50 @@ const local: App.I18n.Schema = {
         desc5: 'Soybean just wrote some of the workbench pages casually, and it was enough to see!'
       },
       creativity: 'Creativity'
+    },
+    userCenter: {
+      changePassword: {
+        title: 'Change Password',
+        form: {
+          oldPassword: {
+            title: 'Old Password',
+            placeholder: 'Please enter your old password'
+          },
+          newPassword: {
+            title: 'New Password',
+            placeholder: 'Please enter a new password'
+          },
+          confirmPassword: {
+            title: 'Confirm Password',
+            placeholder: 'Please enter confirmation password'
+          }
+        }
+      },
+      loginLog: {
+        title: 'Login Log',
+        ip: 'IP',
+        device: 'Login Device',
+        createTime: 'Login Time',
+        form: {
+          ip: 'Please enter IP'
+        }
+      },
+      operationLog: {
+        title: 'Operation Log',
+        ip: 'IP',
+        device: 'Operating device',
+        createTime: 'Operation time',
+        behavior: 'Operation behavior',
+        object: 'Operation Object',
+        form: {
+          ip: 'Please enter IP',
+          behavior: 'Please select action behavior',
+          object: 'Please enter the operation object'
+        },
+        behaviorOption: {
+          changePassword: 'Change Password'
+        }
+      }
     }
   },
   form: {
