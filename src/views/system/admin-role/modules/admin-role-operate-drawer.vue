@@ -16,7 +16,7 @@ interface Emits {
   (e: 'submitted'): void;
 }
 
-type Model = Pick<Api.System.AdminRole, 'id' | 'name'>;
+type Model = Pick<Api.System.AdminRole, 'id' | 'name' | 'description'>;
 type RuleKey = Extract<keyof Model, 'name'>;
 
 const { formRef, validate, restoreValidation } = useNaiveForm();
@@ -48,7 +48,8 @@ watch(visible, () => {
 function createDefaultModel(): Model {
   return {
     id: 0,
-    name: ''
+    name: '',
+    description: ''
   };
 }
 
@@ -67,14 +68,20 @@ function closeDrawer() {
 async function handleSubmit() {
   await validate();
   if (props.operateType === 'add') {
-    const { error } = await fetchAddAdminRole({ name: model.name });
+    const { error } = await fetchAddAdminRole({
+      name: model.name,
+      description: model.description
+    });
     if (!error) {
       window.$message?.success($t('common.createSuccess'));
       closeDrawer();
       emit('submitted');
     }
   } else {
-    const { error } = await fetchEditAdminRole(model.id, { name: model.name });
+    const { error } = await fetchEditAdminRole(model.id, {
+      name: model.name,
+      description: model.description
+    });
     if (!error) {
       window.$message?.success($t('common.updateSuccess'));
       closeDrawer();
@@ -90,6 +97,15 @@ async function handleSubmit() {
       <NForm ref="formRef" :model="model" :rules="rules">
         <NFormItem :label="$t('page.system.adminRole.name')" path="name">
           <NInput v-model:value="model.name" :placeholder="$t('page.system.adminRole.form.name')" />
+        </NFormItem>
+        <NFormItem :label="$t('page.system.adminRole.description')">
+          <NInput
+            v-model:value="model.description"
+            type="textarea"
+            maxlength="100"
+            show-count
+            :placeholder="$t('page.system.adminRole.form.description')"
+          />
         </NFormItem>
       </NForm>
       <template #footer>

@@ -8,7 +8,7 @@ defineOptions({
   name: 'OperationLog'
 });
 
-const { columns, data, loading, pagination, searchParams, getDataByPage, resetSearchParams } = useTable({
+const { columns, data, loading, pagination, searchParams, getDataByPage, resetSearchParams, getData } = useTable({
   showTotal: true,
   apiFn: fetchGetOperationlogList,
   apiParams: {
@@ -65,6 +65,10 @@ const { columns, data, loading, pagination, searchParams, getDataByPage, resetSe
   <div class="min-h-500px flex-col-stretch gap-16px overflow-hidden lt-sm:overflow-auto">
     <OperationLogSearch v-model:model="searchParams" @reset="resetSearchParams" @search="getDataByPage" />
     <NCard :bordered="false" size="small" class="sm:flex-1-hidden card-wrapper">
+      <template #header-extra>
+        {{ 666 }}
+        <TableHeaderOperation :loading="loading" disabled-delete disable-add @refresh="getData" />
+      </template>
       <NDataTable
         :columns="columns"
         :data="data"

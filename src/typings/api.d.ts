@@ -132,6 +132,8 @@ declare namespace Api {
     /** admin role */
     type AdminRole = Common.CommonRecord<{
       name: string; // 角色名称
+      description: string; // 角色描述
+      isDefault: boolean; // 是否默认角色
     }>;
 
     /** admin role search params */

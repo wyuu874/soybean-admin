@@ -522,10 +522,12 @@ declare namespace App {
           adminRole: {
             title: string;
             name: string;
+            description: string;
             addAdminRole: string;
             editAdminRole: string;
             form: {
               name: string;
+              description: string;
             };
           };
         };

@@ -7,6 +7,7 @@ defineOptions({
 
 interface Props {
   itemAlign?: NaiveUI.Align;
+  disableAdd?: boolean;
   disabledDelete?: boolean;
   loading?: boolean;
 }
@@ -42,15 +43,15 @@ function refresh() {
   <NSpace :align="itemAlign" wrap justify="end" class="lt-sm:w-200px">
     <slot name="prefix"></slot>
     <slot name="default">
-      <NButton size="small" ghost type="primary" @click="add">
+      <NButton v-if="disableAdd === false" size="small" ghost type="primary" @click="add">
         <template #icon>
           <icon-ic-round-plus class="text-icon" />
         </template>
         {{ $t('common.add') }}
       </NButton>
-      <NPopconfirm @positive-click="batchDelete">
+      <NPopconfirm v-if="disabledDelete === false" @positive-click="batchDelete">
         <template #trigger>
-          <NButton size="small" ghost type="error" :disabled="disabledDelete">
+          <NButton size="small" ghost type="error">
             <template #icon>
               <icon-ic-round-delete class="text-icon" />
             </template>
@@ -66,7 +67,7 @@ function refresh() {
       </template>
       {{ $t('common.refresh') }}
     </NButton>
-    <TableColumnSetting v-model:columns="columns" />
+    <TableColumnSetting v-if="columns.length > 0" v-model:columns="columns" />
     <slot name="suffix"></slot>
   </NSpace>
 </template>

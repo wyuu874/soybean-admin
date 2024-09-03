@@ -286,10 +286,12 @@ const local: App.I18n.Schema = {
       adminRole: {
         title: '角色列表',
         name: '角色名称',
+        description: '角色描述',
         addAdminRole: '添加角色',
         editAdminRole: '编辑角色',
         form: {
-          name: '请输入角色名称'
+          name: '请输入角色名称',
+          description: '请输入角色描述'
         }
       }
     }

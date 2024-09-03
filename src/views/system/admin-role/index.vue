@@ -30,6 +30,13 @@ const { data, columns, loading, mobilePagination, searchParams, resetSearchParam
       width: 200
     },
     {
+      key: 'description',
+      title: $t('page.system.adminRole.description'),
+      align: 'left',
+      width: 200,
+      render: row => <div class="text-ellipsis-1">{row.description ? row.description : '-'}</div>
+    },
+    {
       key: 'createTime',
       title: $t('common.createTime'),
       align: 'left',
@@ -48,14 +55,14 @@ const { data, columns, loading, mobilePagination, searchParams, resetSearchParam
       width: 130,
       render: row => (
         <div class="flex-center gap-8px">
-          <NButton type="primary" ghost size="small" onClick={() => edit(row.id)}>
+          <NButton type="primary" ghost size="small" disabled={row.isDefault} onClick={() => edit(row.id)}>
             {$t('common.edit')}
           </NButton>
           <NPopconfirm onPositiveClick={() => handleDelete(row.id)}>
             {{
               default: () => $t('common.confirmDelete'),
               trigger: () => (
-                <NButton type="error" ghost size="small">
+                <NButton type="error" ghost size="small" disabled={row.isDefault}>
                   {$t('common.delete')}
                 </NButton>
               )
@@ -90,7 +97,13 @@ async function handleDelete(id: number) {
       class="sm:flex-1-hidden card-wrapper"
     >
       <template #header-extra>
-        <TableHeaderOperation :loading="loading" @add="handleAdd" @refresh="getData" />
+        <TableHeaderOperation
+          :loading="loading"
+          disabled-delete
+          :disable-add="false"
+          @add="handleAdd"
+          @refresh="getData"
+        />
       </template>
       <NDataTable
         :columns="columns"

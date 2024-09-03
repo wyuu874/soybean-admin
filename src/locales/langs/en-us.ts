@@ -286,10 +286,12 @@ const local: App.I18n.Schema = {
       adminRole: {
         title: 'Role List',
         name: 'Role Name',
+        description: 'Role Description',
         addAdminRole: 'Add Role',
         editAdminRole: 'Edit Role',
         form: {
-          name: 'Please enter role name'
+          name: 'Please enter role name',
+          description: 'please enter role description'
         }
       }
     }
