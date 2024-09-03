@@ -47,7 +47,10 @@ const local: App.I18n.Schema = {
     yesOrNo: {
       yes: '是',
       no: '否'
-    }
+    },
+    createTime: '创建时间',
+    updateTime: '更新时间',
+    createSuccess: '新增成功'
   },
   request: {
     logout: '请求失败后登出用户',
@@ -155,7 +158,9 @@ const local: App.I18n.Schema = {
     500: '服务器错误',
     'iframe-page': '外链页面',
     home: '首页',
-    'user-center': '个人中心'
+    'user-center': '个人中心',
+    system: '系统管理',
+    'system_admin-role': '角色管理'
   },
   page: {
     login: {
@@ -274,6 +279,17 @@ const local: App.I18n.Schema = {
         },
         behaviorOption: {
           changePassword: '修改密码'
+        }
+      }
+    },
+    system: {
+      adminRole: {
+        title: '角色列表',
+        name: '角色名称',
+        addAdminRole: '添加角色',
+        editAdminRole: '编辑角色',
+        form: {
+          name: '请输入角色名称'
         }
       }
     }

@@ -329,6 +329,9 @@ declare namespace App {
           yes: string;
           no: string;
         };
+        createTime: string;
+        updateTime: string;
+        createSuccess: string;
       };
       request: {
         logout: string;
@@ -512,6 +515,17 @@ declare namespace App {
             };
             behaviorOption: {
               changePassword: string;
+            };
+          };
+        };
+        system: {
+          adminRole: {
+            title: string;
+            name: string;
+            addAdminRole: string;
+            editAdminRole: string;
+            form: {
+              name: string;
             };
           };
         };

@@ -120,4 +120,24 @@ declare namespace Api {
       home: import('@elegant-router/types').LastLevelRouteKey;
     }
   }
+
+  /**
+   * namespace System
+   *
+   * backend api module: "system"
+   */
+  namespace System {
+    type CommonSearchParams = Pick<Common.PaginatingCommonParams, 'current' | 'size'>;
+
+    /** admin role */
+    type AdminRole = Common.CommonRecord<{
+      name: string; // 角色名称
+    }>;
+
+    /** admin role search params */
+    type AdminRoleSearchParams = CommonType.RecordNullable<Pick<AdminRole, 'name'> & CommonSearchParams>;
+
+    /** admin role list */
+    type AdminRoleList = Common.PaginatingQueryRecord<AdminRole>;
+  }
 }

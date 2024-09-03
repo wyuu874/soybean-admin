@@ -47,7 +47,10 @@ const local: App.I18n.Schema = {
     yesOrNo: {
       yes: 'Yes',
       no: 'No'
-    }
+    },
+    createTime: 'Create Time',
+    updateTime: 'Update Time',
+    createSuccess: 'Create Success'
   },
   request: {
     logout: 'Logout user after request failed',
@@ -155,7 +158,9 @@ const local: App.I18n.Schema = {
     500: 'Server Error',
     'iframe-page': 'Iframe',
     home: 'Home',
-    'user-center': 'User Center'
+    'user-center': 'User Center',
+    system: 'System',
+    'system_admin-role': 'Admin Role'
   },
   page: {
     login: {
@@ -274,6 +279,17 @@ const local: App.I18n.Schema = {
         },
         behaviorOption: {
           changePassword: 'Change Password'
+        }
+      }
+    },
+    system: {
+      adminRole: {
+        title: 'Role List',
+        name: 'Role Name',
+        addAdminRole: 'Add Role',
+        editAdminRole: 'Edit Role',
+        form: {
+          name: 'Please enter role name'
         }
       }
     }

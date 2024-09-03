@@ -76,6 +76,29 @@ export const generatedRoutes: GeneratedRoute[] = [
     }
   },
   {
+    name: 'system',
+    path: '/system',
+    component: 'layout.base',
+    meta: {
+      title: 'system',
+      i18nKey: 'route.system',
+      icon: 'carbon:cloud-service-management',
+      order: 2
+    },
+    children: [
+      {
+        name: 'system_admin-role',
+        path: '/system/admin-role',
+        component: 'view.system_admin-role',
+        meta: {
+          title: 'system_admin-role',
+          i18nKey: 'route.system_admin-role',
+          icon: 'carbon:user-role'
+        }
+      }
+    ]
+  },
+  {
     name: 'user-center',
     path: '/user-center',
     component: 'layout.base$view.user-center',
