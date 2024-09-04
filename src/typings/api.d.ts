@@ -101,6 +101,12 @@ declare namespace Api {
 
     /** operation log list */
     type OperationLogList = Common.PaginatingQueryRecord<OperationLog>;
+
+    /** operation behavior */
+    type OperationBehavior = CommonType.Option<string>;
+
+    /** Operation behavior list */
+    type OperationBehaviorList = OperationBehavior[];
   }
 
   /**
@@ -194,5 +200,11 @@ declare namespace Api {
 
     /** admin operation log list */
     type AdminOperationLogList = Common.PaginatingQueryRecord<AdminOperationLog>;
+
+    /** admin operation behavior */
+    type AdminOperationBehavior = CommonType.Option<string>;
+
+    /** admin operation behavior list */
+    type AdminOperationBehaviorList = AdminOperationBehavior[];
   }
 }

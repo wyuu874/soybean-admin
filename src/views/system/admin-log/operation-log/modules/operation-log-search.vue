@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import { useNaiveForm } from '@/hooks/common/form';
 import { $t } from '@/locales';
+import { fetchGetAdminOperationBehaviorList } from '@/service/api/system';
 
 defineOptions({
   name: 'OerationLogSearch'
@@ -21,36 +22,11 @@ const model = defineModel<
   required: true
 });
 const dateRange = ref(null);
-const options = [
-  {
-    label: $t('page.adminBehavior.changePassword'),
-    value: '修改密码'
-  },
-  {
-    label: $t('page.adminBehavior.addAdminRole'),
-    value: '添加角色'
-  },
-  {
-    label: $t('page.adminBehavior.editAdminRole'),
-    value: '编辑角色'
-  },
-  {
-    label: $t('page.adminBehavior.deleteAdminRole'),
-    value: '删除角色'
-  },
-  {
-    label: $t('page.adminBehavior.addAdminUser'),
-    value: '添加用户'
-  },
-  {
-    label: $t('page.adminBehavior.editAdminUser'),
-    value: '编辑用户'
-  },
-  {
-    label: $t('page.adminBehavior.deleteAdminUser'),
-    value: '删除用户'
-  }
-];
+const behaviorOptions = ref<CommonType.Option<string>[]>([]);
+
+onMounted(() => {
+  getAdminOperationBehaviorList();
+});
 
 function handleFormattedValue(value: [string, string]) {
   model.value.dateRange = `${value[0]}~${value[1]}`;
@@ -65,13 +41,20 @@ async function reset() {
 async function search() {
   emit('search');
 }
+
+async function getAdminOperationBehaviorList() {
+  const { data } = await fetchGetAdminOperationBehaviorList();
+  if (data) {
+    behaviorOptions.value = data;
+  }
+}
 </script>
 
 <template>
   <NCard :bordered="false" size="small" class="card-wrapper">
     <NCollapse>
       <NCollapseItem :title="$t('common.search')" name="login-log-search">
-        <NForm ref="formRef" :model="model" label-placement="left" :label-width="80">
+        <NForm ref="formRef" :model="model" label-placement="left" :label-width="140">
           <NGrid responsive="screen" item-responsive>
             <NFormItemGi span="24 s:12 m:6" :label="$t('page.system.adminLog.operationLog.userName')" class="pr-24px">
               <NInput
@@ -89,7 +72,7 @@ async function search() {
               <NSelect
                 v-model:value="model.behavior"
                 :placeholder="$t('page.system.adminLog.operationLog.form.behavior')"
-                :options="options"
+                :options="behaviorOptions"
               ></NSelect>
             </NFormItemGi>
             <NFormItemGi span="24 s:12 m:6" :label="$t('page.system.adminLog.operationLog.createTime')" class="pr-24px">

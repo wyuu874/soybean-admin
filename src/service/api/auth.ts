@@ -91,3 +91,11 @@ export function fetchGetOperationlogList(params?: Api.Auth.OperationLogSearchPar
     params
   });
 }
+
+/** GetOperationBehaviorList */
+export function fetchGetOperationBehaviorList() {
+  return request<Api.Auth.OperationBehaviorList>({
+    url: '/auth/operation-behaviors',
+    method: 'get'
+  });
+}

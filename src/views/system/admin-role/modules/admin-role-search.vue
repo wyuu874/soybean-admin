@@ -28,7 +28,7 @@ async function search() {
   <NCard :bordered="false" size="small" class="card-wrapper">
     <NCollapse>
       <NCollapseItem :title="$t('common.search')" name="login-log-search">
-        <NForm ref="formRef" :model="model" label-placement="left" :label-width="80">
+        <NForm ref="formRef" :model="model" label-placement="left" :label-width="120">
           <NGrid responsive="screen" item-responsive>
             <NFormItemGi span="24 s:12 m:8" :label="$t('page.system.adminRole.name')" class="pr-24px">
               <NInput v-model:value="model.name" :placeholder="$t('page.system.adminRole.form.name')" />

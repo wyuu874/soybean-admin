@@ -321,13 +321,13 @@ const local: App.I18n.Schema = {
           }
         },
         operationLog: {
-          title: '操作日志',
+          title: 'Operation Log',
           userName: 'User Name',
           ip: 'IP',
           device: 'Operation Device',
           createTime: 'Operation Time',
-          behavior: 'Behavior',
-          object: 'Object',
+          behavior: 'Operation Behavior',
+          object: 'Operation Object',
           form: {
             userName: 'Please enter user name',
             ip: 'Please enter IP',

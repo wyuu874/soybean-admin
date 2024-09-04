@@ -50,7 +50,7 @@ async function handleReset() {
   <NCard :bordered="false" size="small" class="card-wrapper">
     <NGrid responsive="screen" item-responsive>
       <NGridItem span="6 m:12 l:8">
-        <NForm ref="formRef" :model="model" :rules="rules" label-placement="left" label-width="80px">
+        <NForm ref="formRef" :model="model" :rules="rules" label-placement="left" label-width="180px">
           <NFormItem path="oldPassword" :label="$t('page.userCenter.changePassword.form.oldPassword.title')">
             <NInput
               v-model:value="model.oldPassword"

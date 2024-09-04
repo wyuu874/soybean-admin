@@ -129,3 +129,11 @@ export function fetchGetAdminOperationLog(params?: Api.System.AdminOperationLogS
     params
   });
 }
+
+/** GetAdminOperationBehaviorList */
+export function fetchGetAdminOperationBehaviorList() {
+  return request<Api.System.AdminOperationBehaviorList>({
+    url: '/operation-behaviors',
+    method: 'get'
+  });
+}
