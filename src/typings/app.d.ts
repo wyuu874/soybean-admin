@@ -513,9 +513,6 @@ declare namespace App {
               behavior: string;
               object: string;
             };
-            behaviorOption: {
-              changePassword: string;
-            };
           };
         };
         system: {
@@ -530,6 +527,56 @@ declare namespace App {
               description: string;
             };
           };
+          adminUser: {
+            title: string;
+            userName: string;
+            password: string;
+            adminRoleName: string;
+            addAdminUser: string;
+            editAdminUser: string;
+            form: {
+              userName: string;
+              password: string;
+              adminRoleName: string;
+            };
+          };
+          adminLog: {
+            loginLog: {
+              title: string;
+              userName: string;
+              ip: string;
+              device: string;
+              createTime: string;
+              form: {
+                userName: string;
+                ip: string;
+              };
+            };
+            operationLog: {
+              title: string;
+              userName: string;
+              ip: string;
+              device: string;
+              behavior: string;
+              object: string;
+              createTime: string;
+              form: {
+                userName: string;
+                ip: string;
+                behavior: string;
+                object: string;
+              };
+            };
+          };
+        };
+        adminBehavior: {
+          addAdminRole: string;
+          editAdminRole: string;
+          deleteAdminRole: string;
+          addAdminUser: string;
+          editAdminUser: string;
+          deleteAdminUser: string;
+          changePassword: string;
         };
       };
       form: {

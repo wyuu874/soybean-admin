@@ -127,8 +127,6 @@ declare namespace Api {
    * backend api module: "system"
    */
   namespace System {
-    type CommonSearchParams = Pick<Common.PaginatingCommonParams, 'current' | 'size'>;
-
     /** admin role */
     type AdminRole = Common.CommonRecord<{
       name: string; // 角色名称
@@ -137,9 +135,64 @@ declare namespace Api {
     }>;
 
     /** admin role search params */
-    type AdminRoleSearchParams = CommonType.RecordNullable<Pick<AdminRole, 'name'> & CommonSearchParams>;
+    type AdminRoleSearchParams = CommonType.RecordNullable<Pick<AdminRole, 'name'> & Common.CommonSearchParams>;
 
     /** admin role list */
     type AdminRoleList = Common.PaginatingQueryRecord<AdminRole>;
+
+    /** admin user */
+    type AdminUser = Common.CommonRecord<{
+      userName: string; // 用户名
+      password: string; // 密码
+      adminRoleId: string | null; // 角色ID
+      adminRoleName: string; // 角色名称
+      isDefault: boolean; // 是否默认用户
+    }>;
+
+    /** admin user search params */
+    type AdminUserSearchParams = CommonType.RecordNullable<
+      Pick<AdminUser, 'userName' | 'adminRoleId'> & Common.CommonSearchParams
+    >;
+
+    /** admin user list */
+    type AdminUserList = Common.PaginatingQueryRecord<AdminUser>;
+
+    /** admin login log */
+    type AdminLoginLog = Common.CommonRecord<{
+      userName: string; // 用户名
+      ip: string; // IP
+      platform: string; // 平台
+      os: string; // 操作系统
+      browser: string; // 浏览器
+      dateRange: string; // 登录时间范围
+    }>;
+
+    /** admin login log search params */
+    type AdminLoginLogSearchParams = CommonType.RecordNullable<
+      Pick<AdminLoginLog, 'userName' | 'ip' | 'dateRange'> & Common.CommonSearchParams
+    >;
+
+    /** admin login log list */
+    type AdminLoginLogList = Common.PaginatingQueryRecord<AdminLoginLog>;
+
+    /** admin operation log */
+    type AdminOperationLog = Common.CommonRecord<{
+      userName: string; // 用户名
+      ip: string; // IP
+      platform: string; // 平台
+      os: string; // 操作系统
+      browser: string; // 浏览器
+      behavior: string; // 操作行为
+      object: string; // 操作对象
+      dateRange: string; // 操作时间范围
+    }>;
+
+    /** admin operation log search params */
+    type AdminOperationLogSearchParams = CommonType.RecordNullable<
+      Pick<AdminOperationLog, 'userName' | 'ip' | 'behavior' | 'object' | 'dateRange'> & Common.CommonSearchParams
+    >;
+
+    /** admin operation log list */
+    type AdminOperationLogList = Common.PaginatingQueryRecord<AdminOperationLog>;
   }
 }

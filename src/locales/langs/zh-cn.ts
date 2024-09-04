@@ -160,7 +160,11 @@ const local: App.I18n.Schema = {
     home: '首页',
     'user-center': '个人中心',
     system: '系统管理',
-    'system_admin-role': '角色管理'
+    'system_admin-role': '角色管理',
+    'system_admin-user': '用户管理',
+    'system_admin-log': '日志管理',
+    'system_admin-log_login-log': '登录日志',
+    'system_admin-log_operation-log': '操作日志'
   },
   page: {
     login: {
@@ -276,9 +280,6 @@ const local: App.I18n.Schema = {
           ip: '请输入IP',
           behavior: '请选择操作行为',
           object: '请输入操作对象'
-        },
-        behaviorOption: {
-          changePassword: '修改密码'
         }
       }
     },
@@ -287,13 +288,63 @@ const local: App.I18n.Schema = {
         title: '角色列表',
         name: '角色名称',
         description: '角色描述',
-        addAdminRole: '添加角色',
+        addAdminRole: '新增角色',
         editAdminRole: '编辑角色',
         form: {
           name: '请输入角色名称',
           description: '请输入角色描述'
         }
+      },
+      adminUser: {
+        title: '用户列表',
+        userName: '用户名',
+        password: '密码',
+        adminRoleName: '角色',
+        addAdminUser: '新增用户',
+        editAdminUser: '编辑用户',
+        form: {
+          userName: '请输入用户名',
+          password: '请输入密码',
+          adminRoleName: '请选择角色'
+        }
+      },
+      adminLog: {
+        loginLog: {
+          title: '登录日志',
+          userName: '用户名',
+          ip: 'IP',
+          device: '登录设备',
+          createTime: '登录时间',
+          form: {
+            userName: '请输入用户名',
+            ip: '请输入IP'
+          }
+        },
+        operationLog: {
+          title: '操作日志',
+          userName: '用户名',
+          ip: 'IP',
+          device: '操作设备',
+          createTime: '操作时间',
+          behavior: '操作行为',
+          object: '操作对象',
+          form: {
+            userName: '请输入用户名',
+            ip: '请输入IP',
+            behavior: '请选择操作行为',
+            object: '请输入操作对象'
+          }
+        }
       }
+    },
+    adminBehavior: {
+      addAdminRole: '添加角色',
+      editAdminRole: '编辑角色',
+      deleteAdminRole: '删除角色',
+      addAdminUser: '添加用户',
+      editAdminUser: '编辑用户',
+      deleteAdminUser: '删除用户',
+      changePassword: '修改密码'
     }
   },
   form: {

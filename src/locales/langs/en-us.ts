@@ -160,7 +160,11 @@ const local: App.I18n.Schema = {
     home: 'Home',
     'user-center': 'User Center',
     system: 'System',
-    'system_admin-role': 'Admin Role'
+    'system_admin-role': 'Admin Role',
+    'system_admin-user': 'Admin User',
+    'system_admin-log': 'Admin Log',
+    'system_admin-log_login-log': 'Login Log',
+    'system_admin-log_operation-log': 'Operation Log'
   },
   page: {
     login: {
@@ -276,9 +280,6 @@ const local: App.I18n.Schema = {
           ip: 'Please enter IP',
           behavior: 'Please select action behavior',
           object: 'Please enter the operation object'
-        },
-        behaviorOption: {
-          changePassword: 'Change Password'
         }
       }
     },
@@ -293,7 +294,57 @@ const local: App.I18n.Schema = {
           name: 'Please enter role name',
           description: 'please enter role description'
         }
+      },
+      adminUser: {
+        title: 'User List',
+        userName: 'User Name',
+        password: 'Password',
+        adminRoleName: 'Role',
+        addAdminUser: 'Add User',
+        editAdminUser: 'Edit User',
+        form: {
+          userName: 'Please enter user name',
+          password: 'Please enter password',
+          adminRoleName: 'Please select role'
+        }
+      },
+      adminLog: {
+        loginLog: {
+          title: 'Login Log',
+          userName: 'User Name',
+          ip: 'IP',
+          device: 'Login Device',
+          createTime: 'Login Time',
+          form: {
+            userName: 'Please enter user name',
+            ip: 'Please enter IP'
+          }
+        },
+        operationLog: {
+          title: '操作日志',
+          userName: 'User Name',
+          ip: 'IP',
+          device: 'Operation Device',
+          createTime: 'Operation Time',
+          behavior: 'Behavior',
+          object: 'Object',
+          form: {
+            userName: 'Please enter user name',
+            ip: 'Please enter IP',
+            behavior: 'Please select action behavior',
+            object: 'Please enter the operation object'
+          }
+        }
       }
+    },
+    adminBehavior: {
+      addAdminRole: 'Add Role',
+      editAdminRole: 'Edit Role',
+      deleteAdminRole: 'Delete Role',
+      addAdminUser: 'Add User',
+      editAdminUser: 'Edit User',
+      deleteAdminUser: 'Delete User',
+      changePassword: 'Change Password'
     }
   },
   form: {

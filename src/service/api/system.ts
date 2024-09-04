@@ -51,3 +51,81 @@ export function fetchDeleteAdminRole(id: number) {
     method: 'delete'
   });
 }
+
+/**
+ * GetAdminUserList
+ *
+ * @param params 'userName' | 'adminRoleId' | 'current' | 'size'
+ */
+export function fetchGetAdminUserList(params?: Api.System.AdminUserSearchParams) {
+  return request<Api.System.AdminUserList>({
+    url: '/admin-users',
+    method: 'get',
+    params
+  });
+}
+
+/**
+ * AddAdminUser
+ *
+ * @param params 'userName' | 'password' | 'adminRoleId'
+ */
+export function fetchAddAdminUser(params: Pick<Api.System.AdminUser, 'userName' | 'password' | 'adminRoleId'>) {
+  return request({
+    url: '/admin-users',
+    method: 'post',
+    data: params
+  });
+}
+
+/**
+ * EditAdminUser
+ *
+ * @param id 用户ID
+ * @param params 'password' | 'adminRoleId
+ */
+export function fetchEditAdminUser(id: number, params: Pick<Api.System.AdminUser, 'password' | 'adminRoleId'>) {
+  return request({
+    url: `/admin-users/${id}`,
+    method: 'put',
+    data: params
+  });
+}
+
+/**
+ * DeleteAdminUser
+ *
+ * @param id 用户ID
+ */
+export function fetchDeleteAdminUser(id: number) {
+  return request({
+    url: `/admin-users/${id}`,
+    method: 'delete'
+  });
+}
+
+/**
+ * GetAdminLoginLog
+ *
+ * @param params 'userName' | 'ip' | 'dateRange' | 'current' | 'size'
+ */
+export function fetchGetAdminLoginLog(params?: Api.System.AdminLoginLogSearchParams) {
+  return request<Api.System.AdminLoginLogList>({
+    url: '/login-logs',
+    method: 'get',
+    params
+  });
+}
+
+/**
+ * GetAdminOperationLog
+ *
+ * @param params 'userName' | 'ip' | 'dateRange' | 'behavior' | 'object' | 'current' | 'size'
+ */
+export function fetchGetAdminOperationLog(params?: Api.System.AdminOperationLogSearchParams) {
+  return request<Api.System.AdminOperationLogList>({
+    url: '/operation-logs',
+    method: 'get',
+    params
+  });
+}

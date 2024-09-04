@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useNaiveForm } from '@/hooks/common/form';
-import { $t } from '@/locales';
 
 defineOptions({
-  name: 'OerationLogSearch'
+  name: 'LoginLogSearch'
 });
 
 interface Emits {
@@ -14,40 +13,10 @@ interface Emits {
 
 const emit = defineEmits<Emits>();
 const { formRef } = useNaiveForm();
-const model = defineModel<Api.Auth.OperationLogSearchParams, 'ip' | 'behavior' | 'object' | 'dateRange'>('model', {
+const model = defineModel<Api.System.AdminLoginLogSearchParams, 'userName' | 'ip' | 'dateRange'>('model', {
   required: true
 });
 const dateRange = ref(null);
-const options = [
-  {
-    label: $t('page.adminBehavior.changePassword'),
-    value: '修改密码'
-  },
-  {
-    label: $t('page.adminBehavior.addAdminRole'),
-    value: '添加角色'
-  },
-  {
-    label: $t('page.adminBehavior.editAdminRole'),
-    value: '编辑角色'
-  },
-  {
-    label: $t('page.adminBehavior.deleteAdminRole'),
-    value: '删除角色'
-  },
-  {
-    label: $t('page.adminBehavior.addAdminUser'),
-    value: '添加用户'
-  },
-  {
-    label: $t('page.adminBehavior.editAdminUser'),
-    value: '编辑用户'
-  },
-  {
-    label: $t('page.adminBehavior.deleteAdminUser'),
-    value: '删除用户'
-  }
-];
 
 function handleFormattedValue(value: [string, string]) {
   model.value.dateRange = `${value[0]}~${value[1]}`;
@@ -70,20 +39,13 @@ async function search() {
       <NCollapseItem :title="$t('common.search')" name="login-log-search">
         <NForm ref="formRef" :model="model" label-placement="left" :label-width="80">
           <NGrid responsive="screen" item-responsive>
-            <NFormItemGi span="24 s:12 m:8" :label="$t('page.userCenter.operationLog.ip')" class="pr-24px">
-              <NInput v-model:value="model.ip" :placeholder="$t('page.userCenter.operationLog.form.ip')" />
+            <NFormItemGi span="24 s:12 m:6" :label="$t('page.system.adminLog.loginLog.userName')" class="pr-24px">
+              <NInput v-model:value="model.userName" :placeholder="$t('page.system.adminLog.loginLog.form.userName')" />
             </NFormItemGi>
-            <NFormItemGi span="24 s:12 m:8" :label="$t('page.userCenter.operationLog.object')" class="pr-24px">
-              <NInput v-model:value="model.object" :placeholder="$t('page.userCenter.operationLog.form.object')" />
+            <NFormItemGi span="24 s:12 m:6" :label="$t('page.system.adminLog.loginLog.ip')" class="pr-24px">
+              <NInput v-model:value="model.ip" :placeholder="$t('page.system.adminLog.loginLog.form.ip')" />
             </NFormItemGi>
-            <NFormItemGi span="24 s:12 m:8" :label="$t('page.userCenter.operationLog.behavior')" class="pr-24px">
-              <NSelect
-                v-model:value="model.behavior"
-                :placeholder="$t('page.userCenter.operationLog.form.behavior')"
-                :options="options"
-              ></NSelect>
-            </NFormItemGi>
-            <NFormItemGi span="24 s:12 m:8" :label="$t('page.userCenter.operationLog.createTime')" class="pr-24px">
+            <NFormItemGi span="24 s:12 m:6" :label="$t('page.system.adminLog.loginLog.createTime')" class="pr-24px">
               <NDatePicker
                 v-model:value="dateRange"
                 date-value-on-close
@@ -91,7 +53,7 @@ async function search() {
                 @update:formatted-value="handleFormattedValue"
               />
             </NFormItemGi>
-            <NFormItemGi span="24 m:16" class="pr-24px">
+            <NFormItemGi span="24 m:6" class="pr-24px">
               <NSpace class="w-full" justify="start">
                 <NButton @click="reset">
                   <template #icon>

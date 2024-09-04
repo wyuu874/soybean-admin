@@ -1,19 +1,22 @@
 <script setup lang="ts">
 import { useTable } from '@/hooks/common/table';
 import { $t } from '@/locales';
-import { fetchGetOperationlogList } from '@/service/api';
-import OperationLogSearch from '@/views/_builtin/user-center/modules/operation-log-search.vue';
+import { fetchGetAdminOperationLog } from '@/service/api/system';
+import { useAppStore } from '@/store/modules/app';
+import OperationLogSearch from '@/views/system/admin-log/operation-log/modules/operation-log-search.vue';
 
 defineOptions({
   name: 'OperationLog'
 });
 
-const { columns, data, loading, pagination, searchParams, getDataByPage, resetSearchParams } = useTable({
+const appStore = useAppStore();
+const { columns, data, loading, mobilePagination, searchParams, getDataByPage, resetSearchParams, getData } = useTable({
   showTotal: true,
-  apiFn: fetchGetOperationlogList,
+  apiFn: fetchGetAdminOperationLog,
   apiParams: {
     current: 1,
     size: 10,
+    userName: null,
     ip: null,
     behavior: null,
     object: null,
@@ -21,14 +24,20 @@ const { columns, data, loading, pagination, searchParams, getDataByPage, resetSe
   },
   columns: () => [
     {
+      key: 'userName',
+      title: $t('page.system.adminLog.operationLog.userName'),
+      align: 'left',
+      width: 128
+    },
+    {
       key: 'ip',
-      title: $t('page.userCenter.operationLog.ip'),
+      title: $t('page.system.adminLog.operationLog.ip'),
       align: 'left',
       width: 128
     },
     {
       key: 'platform',
-      title: $t('page.userCenter.operationLog.device'),
+      title: $t('page.system.adminLog.operationLog.device'),
       align: 'left',
       width: 300,
       render: row => {
@@ -38,13 +47,13 @@ const { columns, data, loading, pagination, searchParams, getDataByPage, resetSe
     },
     {
       key: 'behavior',
-      title: $t('page.userCenter.operationLog.behavior'),
+      title: $t('page.system.adminLog.operationLog.behavior'),
       align: 'left',
       width: 128
     },
     {
       key: 'object',
-      title: $t('page.userCenter.operationLog.object'),
+      title: $t('page.system.adminLog.operationLog.object'),
       align: 'left',
       width: 128,
       render: row => {
@@ -53,7 +62,7 @@ const { columns, data, loading, pagination, searchParams, getDataByPage, resetSe
     },
     {
       key: 'createTime',
-      title: $t('page.userCenter.operationLog.createTime'),
+      title: $t('page.system.adminLog.operationLog.createTime'),
       align: 'left',
       width: 128
     }
@@ -64,16 +73,25 @@ const { columns, data, loading, pagination, searchParams, getDataByPage, resetSe
 <template>
   <div class="min-h-500px flex-col-stretch gap-16px overflow-hidden lt-sm:overflow-auto">
     <OperationLogSearch v-model:model="searchParams" @reset="resetSearchParams" @search="getDataByPage" />
-    <NCard :bordered="false" size="small" class="sm:flex-1-hidden card-wrapper">
+    <NCard
+      :title="$t('page.system.adminLog.operationLog.title')"
+      :bordered="false"
+      size="small"
+      class="sm:flex-1-hidden card-wrapper"
+    >
+      <template #header-extra>
+        <TableHeaderOperation :loading="loading" disabled-delete disable-add @refresh="getData" />
+      </template>
       <NDataTable
         :columns="columns"
         :data="data"
         size="small"
-        :scroll-x="962"
+        :flex-height="!appStore.isMobile"
+        :scroll-x="702"
         :loading="loading"
         remote
         :row-key="row => row.id"
-        :pagination="pagination"
+        :pagination="mobilePagination"
         class="sm:h-full"
       />
     </NCard>

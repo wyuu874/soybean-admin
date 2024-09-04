@@ -14,7 +14,10 @@ interface Emits {
 
 const emit = defineEmits<Emits>();
 const { formRef } = useNaiveForm();
-const model = defineModel<Api.Auth.OperationLogSearchParams, 'ip' | 'behavior' | 'object' | 'dateRange'>('model', {
+const model = defineModel<
+  Api.System.AdminOperationLogSearchParams,
+  'userName' | 'ip' | 'behavior' | 'object' | 'dateRange'
+>('model', {
   required: true
 });
 const dateRange = ref(null);
@@ -70,20 +73,26 @@ async function search() {
       <NCollapseItem :title="$t('common.search')" name="login-log-search">
         <NForm ref="formRef" :model="model" label-placement="left" :label-width="80">
           <NGrid responsive="screen" item-responsive>
-            <NFormItemGi span="24 s:12 m:8" :label="$t('page.userCenter.operationLog.ip')" class="pr-24px">
-              <NInput v-model:value="model.ip" :placeholder="$t('page.userCenter.operationLog.form.ip')" />
+            <NFormItemGi span="24 s:12 m:6" :label="$t('page.system.adminLog.operationLog.userName')" class="pr-24px">
+              <NInput
+                v-model:value="model.userName"
+                :placeholder="$t('page.system.adminLog.operationLog.form.userName')"
+              />
             </NFormItemGi>
-            <NFormItemGi span="24 s:12 m:8" :label="$t('page.userCenter.operationLog.object')" class="pr-24px">
-              <NInput v-model:value="model.object" :placeholder="$t('page.userCenter.operationLog.form.object')" />
+            <NFormItemGi span="24 s:12 m:6" :label="$t('page.system.adminLog.operationLog.ip')" class="pr-24px">
+              <NInput v-model:value="model.ip" :placeholder="$t('page.system.adminLog.operationLog.form.ip')" />
             </NFormItemGi>
-            <NFormItemGi span="24 s:12 m:8" :label="$t('page.userCenter.operationLog.behavior')" class="pr-24px">
+            <NFormItemGi span="24 s:12 m:6" :label="$t('page.system.adminLog.operationLog.object')" class="pr-24px">
+              <NInput v-model:value="model.object" :placeholder="$t('page.system.adminLog.operationLog.form.object')" />
+            </NFormItemGi>
+            <NFormItemGi span="24 s:12 m:6" :label="$t('page.system.adminLog.operationLog.behavior')" class="pr-24px">
               <NSelect
                 v-model:value="model.behavior"
-                :placeholder="$t('page.userCenter.operationLog.form.behavior')"
+                :placeholder="$t('page.system.adminLog.operationLog.form.behavior')"
                 :options="options"
               ></NSelect>
             </NFormItemGi>
-            <NFormItemGi span="24 s:12 m:8" :label="$t('page.userCenter.operationLog.createTime')" class="pr-24px">
+            <NFormItemGi span="24 s:12 m:6" :label="$t('page.system.adminLog.operationLog.createTime')" class="pr-24px">
               <NDatePicker
                 v-model:value="dateRange"
                 date-value-on-close
@@ -91,7 +100,7 @@ async function search() {
                 @update:formatted-value="handleFormattedValue"
               />
             </NFormItemGi>
-            <NFormItemGi span="24 m:16" class="pr-24px">
+            <NFormItemGi span="24 m:18" class="pr-24px">
               <NSpace class="w-full" justify="start">
                 <NButton @click="reset">
                   <template #icon>

@@ -22,5 +22,8 @@ export const views: Record<LastLevelRouteKey, RouteComponent | (() => Promise<Ro
   login: () => import("@/views/_builtin/login/index.vue"),
   "user-center": () => import("@/views/_builtin/user-center/index.vue"),
   home: () => import("@/views/home/index.vue"),
+  "system_admin-log_login-log": () => import("@/views/system/admin-log/login-log/index.vue"),
+  "system_admin-log_operation-log": () => import("@/views/system/admin-log/operation-log/index.vue"),
   "system_admin-role": () => import("@/views/system/admin-role/index.vue"),
+  "system_admin-user": () => import("@/views/system/admin-user/index.vue"),
 };

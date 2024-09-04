@@ -87,13 +87,59 @@ export const generatedRoutes: GeneratedRoute[] = [
     },
     children: [
       {
+        name: 'system_admin-log',
+        path: '/system/admin-log',
+        meta: {
+          title: 'system_admin-log',
+          i18nKey: 'route.system_admin-log',
+          icon: 'mdi:file-document-multiple',
+          order: 3
+        },
+        children: [
+          {
+            name: 'system_admin-log_login-log',
+            path: '/system/admin-log/login-log',
+            component: 'view.system_admin-log_login-log',
+            meta: {
+              title: 'system_admin-log_login-log',
+              i18nKey: 'route.system_admin-log_login-log',
+              icon: 'mdi:file-document',
+              order: 0
+            }
+          },
+          {
+            name: 'system_admin-log_operation-log',
+            path: '/system/admin-log/operation-log',
+            component: 'view.system_admin-log_operation-log',
+            meta: {
+              title: 'system_admin-log_operation-log',
+              i18nKey: 'route.system_admin-log_operation-log',
+              icon: 'mdi:file-document',
+              order: 1
+            }
+          }
+        ]
+      },
+      {
         name: 'system_admin-role',
         path: '/system/admin-role',
         component: 'view.system_admin-role',
         meta: {
           title: 'system_admin-role',
           i18nKey: 'route.system_admin-role',
-          icon: 'carbon:user-role'
+          icon: 'carbon:user-role',
+          order: 0
+        }
+      },
+      {
+        name: 'system_admin-user',
+        path: '/system/admin-user',
+        component: 'view.system_admin-user',
+        meta: {
+          title: 'system_admin-user',
+          i18nKey: 'route.system_admin-user',
+          icon: 'ic:round-manage-accounts',
+          order: 1
         }
       }
     ]
