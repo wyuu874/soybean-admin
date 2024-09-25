@@ -164,7 +164,8 @@ const local: App.I18n.Schema = {
     'system_admin-user': 'Admin User',
     'system_admin-log': 'Admin Log',
     'system_admin-log_login-log': 'Login Log',
-    'system_admin-log_operation-log': 'Operation Log'
+    'system_admin-log_operation-log': 'Operation Log',
+    system_setting: 'Setting'
   },
   page: {
     login: {
@@ -335,16 +336,14 @@ const local: App.I18n.Schema = {
             object: 'Please enter the operation object'
           }
         }
+      },
+      setting: {
+        enabledRemoteLogin: 'Enable remote login',
+        form: {
+          enabledRemoteLogin:
+            '*After closure, all logged in accounts will be forcibly taken offline and can only log in on one device thereafter'
+        }
       }
-    },
-    adminBehavior: {
-      addAdminRole: 'Add Role',
-      editAdminRole: 'Edit Role',
-      deleteAdminRole: 'Delete Role',
-      addAdminUser: 'Add User',
-      editAdminUser: 'Edit User',
-      deleteAdminUser: 'Delete User',
-      changePassword: 'Change Password'
     }
   },
   form: {

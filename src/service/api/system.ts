@@ -137,3 +137,20 @@ export function fetchGetAdminOperationBehaviorList() {
     method: 'get'
   });
 }
+
+/** GetSetting */
+export function fetchGetSetting() {
+  return request<Api.System.Settings>({
+    url: '/settings',
+    method: 'get'
+  });
+}
+
+/** EditSetting */
+export function fetchEditSetting(params: Api.System.SettingEditParams) {
+  return request({
+    url: '/settings',
+    method: 'put',
+    data: params
+  });
+}

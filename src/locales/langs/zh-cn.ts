@@ -164,7 +164,8 @@ const local: App.I18n.Schema = {
     'system_admin-user': '用户管理',
     'system_admin-log': '日志管理',
     'system_admin-log_login-log': '登录日志',
-    'system_admin-log_operation-log': '操作日志'
+    'system_admin-log_operation-log': '操作日志',
+    system_setting: '系统设置'
   },
   page: {
     login: {
@@ -335,16 +336,13 @@ const local: App.I18n.Schema = {
             object: '请输入操作对象'
           }
         }
+      },
+      setting: {
+        enabledRemoteLogin: '开启异地登录',
+        form: {
+          enabledRemoteLogin: '*关闭后，所有登录的账号将被强制下线，后续只能在一个设备上登录'
+        }
       }
-    },
-    adminBehavior: {
-      addAdminRole: '添加角色',
-      editAdminRole: '编辑角色',
-      deleteAdminRole: '删除角色',
-      addAdminUser: '添加用户',
-      editAdminUser: '编辑用户',
-      deleteAdminUser: '删除用户',
-      changePassword: '修改密码'
     }
   },
   form: {

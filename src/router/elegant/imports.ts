@@ -26,4 +26,5 @@ export const views: Record<LastLevelRouteKey, RouteComponent | (() => Promise<Ro
   "system_admin-log_operation-log": () => import("@/views/system/admin-log/operation-log/index.vue"),
   "system_admin-role": () => import("@/views/system/admin-role/index.vue"),
   "system_admin-user": () => import("@/views/system/admin-user/index.vue"),
+  system_setting: () => import("@/views/system/setting/index.vue"),
 };

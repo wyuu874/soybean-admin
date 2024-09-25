@@ -128,7 +128,7 @@ export const generatedRoutes: GeneratedRoute[] = [
           title: 'system_admin-role',
           i18nKey: 'route.system_admin-role',
           icon: 'carbon:user-role',
-          order: 0
+          order: 1
         }
       },
       {
@@ -139,7 +139,18 @@ export const generatedRoutes: GeneratedRoute[] = [
           title: 'system_admin-user',
           i18nKey: 'route.system_admin-user',
           icon: 'ic:round-manage-accounts',
-          order: 1
+          order: 2
+        }
+      },
+      {
+        name: 'system_setting',
+        path: '/system/setting',
+        component: 'view.system_setting',
+        meta: {
+          title: 'system_setting',
+          i18nKey: 'route.system_setting',
+          icon: 'carbon:settings',
+          order: 0
         }
       }
     ]

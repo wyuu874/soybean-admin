@@ -568,15 +568,12 @@ declare namespace App {
               };
             };
           };
-        };
-        adminBehavior: {
-          addAdminRole: string;
-          editAdminRole: string;
-          deleteAdminRole: string;
-          addAdminUser: string;
-          editAdminUser: string;
-          deleteAdminUser: string;
-          changePassword: string;
+          setting: {
+            enabledRemoteLogin: string;
+            form: {
+              enabledRemoteLogin: string;
+            };
+          };
         };
       };
       form: {

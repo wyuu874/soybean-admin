@@ -29,6 +29,7 @@ declare module "@elegant-router/types" {
     "system_admin-log_operation-log": "/system/admin-log/operation-log";
     "system_admin-role": "/system/admin-role";
     "system_admin-user": "/system/admin-user";
+    "system_setting": "/system/setting";
     "user-center": "/user-center";
   };
 
@@ -96,6 +97,7 @@ declare module "@elegant-router/types" {
     | "system_admin-log_operation-log"
     | "system_admin-role"
     | "system_admin-user"
+    | "system_setting"
   >;
 
   /**
