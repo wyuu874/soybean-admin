@@ -138,18 +138,18 @@ export function fetchGetAdminOperationBehaviorList() {
   });
 }
 
-/** GetSetting */
-export function fetchGetSetting() {
-  return request<Api.System.Settings>({
-    url: '/settings',
+/** GetBaseSetting */
+export function fetchGetBaseSetting() {
+  return request<Api.System.BaseSetting>({
+    url: '/setting/base',
     method: 'get'
   });
 }
 
-/** EditSetting */
-export function fetchEditSetting(params: Api.System.SettingEditParams) {
+/** EditBaseSetting */
+export function fetchEditBaseSetting(params: Api.System.BaseSettingEditParams) {
   return request({
-    url: '/settings',
+    url: '/setting/base',
     method: 'put',
     data: params
   });

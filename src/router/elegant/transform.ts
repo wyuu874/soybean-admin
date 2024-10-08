@@ -176,6 +176,7 @@ const routeMap: RouteMap = {
   "system_admin-role": "/system/admin-role",
   "system_admin-user": "/system/admin-user",
   "system_setting": "/system/setting",
+  "system_setting_base": "/system/setting/base",
   "user-center": "/user-center"
 };
 

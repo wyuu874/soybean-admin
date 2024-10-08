@@ -165,7 +165,8 @@ const local: App.I18n.Schema = {
     'system_admin-log': 'Admin Log',
     'system_admin-log_login-log': 'Login Log',
     'system_admin-log_operation-log': 'Operation Log',
-    system_setting: 'Setting'
+    system_setting: 'Setting',
+    system_setting_base: 'Base'
   },
   page: {
     login: {

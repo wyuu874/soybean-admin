@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
 import { useNaiveForm } from '@/hooks/common/form';
-import { fetchEditSetting, fetchGetSetting } from '@/service/api/system';
+import { fetchEditBaseSetting, fetchGetBaseSetting } from '@/service/api/system';
 import { $t } from '@/locales';
 
 const { formRef } = useNaiveForm();
-const settings: Api.System.Settings = {
+const setting: Api.System.BaseSetting = {
   enabledRemoteLogin: '0'
 };
-const model = ref<Api.System.Settings>({
+const model = ref<Api.System.BaseSetting>({
   enabledRemoteLogin: '0'
 });
 
@@ -17,20 +17,17 @@ onMounted(() => {
 });
 
 async function getSettingList() {
-  const { data } = await fetchGetSetting();
-  Object.assign(settings, data);
+  const { data } = await fetchGetBaseSetting();
+  Object.assign(setting, data);
   Object.assign(model.value, data);
 }
 
 function handleReset() {
-  Object.assign(model.value, settings);
+  Object.assign(model.value, setting);
 }
 
 async function handleSubmit() {
-  const { error } = await fetchEditSetting({
-    type: '0',
-    settings: [{ name: 'enabledRemoteLogin', value: model.value.enabledRemoteLogin }]
-  });
+  const { error } = await fetchEditBaseSetting(model.value);
   if (!error) {
     window.$message?.success($t('common.updateSuccess'));
     await getSettingList();

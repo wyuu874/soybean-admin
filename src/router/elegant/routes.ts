@@ -145,13 +145,25 @@ export const generatedRoutes: GeneratedRoute[] = [
       {
         name: 'system_setting',
         path: '/system/setting',
-        component: 'view.system_setting',
         meta: {
           title: 'system_setting',
           i18nKey: 'route.system_setting',
           icon: 'carbon:settings',
           order: 0
-        }
+        },
+        children: [
+          {
+            name: 'system_setting_base',
+            path: '/system/setting/base',
+            component: 'view.system_setting_base',
+            meta: {
+              title: 'system_setting_base',
+              i18nKey: 'route.system_setting_base',
+              icon: 'carbon:settings',
+              order: 0
+            }
+          }
+        ]
       }
     ]
   },

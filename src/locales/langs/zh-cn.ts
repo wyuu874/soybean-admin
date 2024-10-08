@@ -165,7 +165,8 @@ const local: App.I18n.Schema = {
     'system_admin-log': '日志管理',
     'system_admin-log_login-log': '登录日志',
     'system_admin-log_operation-log': '操作日志',
-    system_setting: '系统设置'
+    system_setting: '系统设置',
+    system_setting_base: '基础设置'
   },
   page: {
     login: {

@@ -207,21 +207,15 @@ declare namespace Api {
     /** admin operation behavior list */
     type AdminOperationBehaviorList = AdminOperationBehavior[];
 
-    /** settings */
-    type Settings = {
+    /** Setting */
+    type Setting = {
       enabledRemoteLogin: string; // 是否启用远程登录: 0-否, 1-是
     };
 
-    /** setting item */
-    type SettingItem = {
-      name: string; // 设置名称
-      value: string; // 设置值
-    };
+    /** BaseSetting */
+    type BaseSetting = Pick<Setting, 'enabledRemoteLogin'>;
 
-    /** setting edit params */
-    type SettingEditParams = {
-      type: string; // 设置类型
-      settings: SettingItem[]; // 设置内容
-    };
+    /** BaseSetting edit params */
+    type BaseSettingEditParams = Pick<BaseSetting, 'enabledRemoteLogin'>;
   }
 }
