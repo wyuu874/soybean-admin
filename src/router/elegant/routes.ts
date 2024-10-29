@@ -121,6 +121,15 @@ export const generatedRoutes: GeneratedRoute[] = [
         ]
       },
       {
+        name: 'system_admin-menu',
+        path: '/system/admin-menu',
+        component: 'view.system_admin-menu',
+        meta: {
+          title: 'system_admin-menu',
+          i18nKey: 'route.system_admin-menu'
+        }
+      },
+      {
         name: 'system_admin-role',
         path: '/system/admin-role',
         component: 'view.system_admin-role',

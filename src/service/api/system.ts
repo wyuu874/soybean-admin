@@ -27,7 +27,7 @@ export function fetchAddAdminRole(params: Pick<Api.System.AdminRole, 'name' | 'd
 }
 
 /**
- * fetchEditAdminRole
+ * EditAdminRole
  *
  * @param id 角色ID
  * @param params 'name'
@@ -150,6 +150,76 @@ export function fetchGetBaseSetting() {
 export function fetchEditBaseSetting(params: Api.System.BaseSettingEditParams) {
   return request({
     url: '/setting/base',
+    method: 'put',
+    data: params
+  });
+}
+
+/** GetAdminMenuList */
+export function fetchGetAdminMenuList(params?: Api.Common.CommonSearchParams) {
+  return request<Api.System.AdminMenuList>({
+    url: '/admin-menus',
+    method: 'get',
+    params
+  });
+}
+
+/** AddAdminMenu */
+export function fetchAddAdminMenu(
+  params: Pick<
+    Api.System.AdminMenu,
+    | 'pid'
+    | 'menuType'
+    | 'menuName'
+    | 'component'
+    | 'routeName'
+    | 'routePath'
+    | 'i18nKey'
+    | 'icon'
+    | 'order'
+    | 'status'
+    | 'hideInMenu'
+    | 'keepAlive'
+    | 'isProps'
+  >
+) {
+  return request({
+    url: '/admin-menus',
+    method: 'post',
+    data: params
+  });
+}
+
+/** DeleteAdminMenu */
+export function fetchDeleteAdminMenu(id: number) {
+  return request({
+    url: `/admin-menus/${id}`,
+    method: 'delete'
+  });
+}
+
+/** EditAdminMenu */
+export function fetchEditAdminMenu(
+  id: number,
+  params: Pick<
+    Api.System.AdminMenu,
+    | 'pid'
+    | 'menuType'
+    | 'menuName'
+    | 'component'
+    | 'routeName'
+    | 'routePath'
+    | 'i18nKey'
+    | 'icon'
+    | 'order'
+    | 'status'
+    | 'hideInMenu'
+    | 'keepAlive'
+    | 'isProps'
+  >
+) {
+  return request({
+    url: `/admin-menus/${id}`,
     method: 'put',
     data: params
   });

@@ -217,5 +217,29 @@ declare namespace Api {
 
     /** BaseSetting edit params */
     type BaseSettingEditParams = Pick<BaseSetting, 'enabledRemoteLogin'>;
+
+    /** AdminMenu type */
+    type AdminMenuType = 0 | 1 | 2;
+
+    type AdminMenuPropsOfRoute = Pick<
+      import('vue-router').RouteMeta,
+      'i18nKey' | 'keepAlive' | 'constant' | 'order' | 'hideInMenu'
+    >;
+
+    /** AdminMenu */
+    type AdminMenu = Common.CommonRecord<{
+      pid: number; // 父级ID
+      menuType: AdminMenuType; // 菜单类型，0常量路由，1默认路由，2权限路由
+      menuName: string; // 菜单名称
+      component: string; // 组件
+      routeName: string; // 路由名称，唯一标识
+      routePath: string; // 路由路径
+      icon: string; // 图标
+      isProps: boolean; // 是否传递Props
+    }> &
+      AdminMenuPropsOfRoute;
+
+    /** AdminMenu list */
+    type AdminMenuList = Common.PaginatingQueryRecord<AdminMenu>;
   }
 }

@@ -332,6 +332,10 @@ declare namespace App {
         createTime: string;
         updateTime: string;
         createSuccess: string;
+        enableStatus: {
+          enabled: string;
+          disabled: string;
+        };
       };
       request: {
         logout: string;
@@ -572,6 +576,39 @@ declare namespace App {
             enabledRemoteLogin: string;
             form: {
               enabledRemoteLogin: string;
+            };
+          };
+          adminMenu: {
+            title: string;
+            menuType: string;
+            menuName: string;
+            component: string;
+            routeName: string;
+            routePath: string;
+            i18nKey: string;
+            icon: string;
+            status: string;
+            hideInMenu: string;
+            keepAlive: string;
+            pid: string;
+            order: string;
+            isProps: string;
+            type: {
+              constantRoute: string;
+              defaultRoute: string;
+              permissionRoute: string;
+            };
+            addAdminMenu: string;
+            editAdminMenu: string;
+            addChildAdminMenu: string;
+            form: {
+              menuName: string;
+              component: string;
+              routeName: string;
+              routePath: string;
+              i18nKey: string;
+              icon: string;
+              order: string;
             };
           };
         };

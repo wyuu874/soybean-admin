@@ -50,7 +50,11 @@ const local: App.I18n.Schema = {
     },
     createTime: '创建时间',
     updateTime: '更新时间',
-    createSuccess: '新增成功'
+    createSuccess: '新增成功',
+    enableStatus: {
+      enabled: '启用',
+      disabled: '禁用'
+    }
   },
   request: {
     logout: '请求失败后登出用户',
@@ -166,7 +170,8 @@ const local: App.I18n.Schema = {
     'system_admin-log_login-log': '登录日志',
     'system_admin-log_operation-log': '操作日志',
     system_setting: '系统设置',
-    system_setting_base: '基础设置'
+    system_setting_base: '基础设置',
+    'system_admin-menu': '菜单管理'
   },
   page: {
     login: {
@@ -342,6 +347,39 @@ const local: App.I18n.Schema = {
         enabledRemoteLogin: '开启异地登录',
         form: {
           enabledRemoteLogin: '*关闭后，所有登录的账号将被强制下线，后续只能在一个设备上登录'
+        }
+      },
+      adminMenu: {
+        title: '菜单列表',
+        menuType: '菜单类型',
+        menuName: '菜单名称',
+        component: '组件',
+        routeName: '路由名称',
+        routePath: '路由路径',
+        i18nKey: '国际化Key',
+        icon: '图标',
+        status: '菜单状态',
+        hideInMenu: '是否隐藏',
+        keepAlive: '是否缓存',
+        pid: '父级菜单ID',
+        order: '排序',
+        isProps: '传递Props',
+        type: {
+          constantRoute: '常量路由',
+          defaultRoute: '默认路由',
+          permissionRoute: '权限路由'
+        },
+        addAdminMenu: '新增菜单',
+        editAdminMenu: '编辑菜单',
+        addChildAdminMenu: '新增子菜单',
+        form: {
+          menuName: '请输入菜单名称',
+          component: '请输入组件',
+          routeName: '请输入路由名称',
+          routePath: '请输入路由路径',
+          i18nKey: '请输入国际化Key',
+          icon: '请输入图标',
+          order: '请输入排序'
         }
       }
     }

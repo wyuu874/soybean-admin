@@ -50,7 +50,11 @@ const local: App.I18n.Schema = {
     },
     createTime: 'Create Time',
     updateTime: 'Update Time',
-    createSuccess: 'Create Success'
+    createSuccess: 'Create Success',
+    enableStatus: {
+      enabled: 'Enabled',
+      disabled: 'Disabled'
+    }
   },
   request: {
     logout: 'Logout user after request failed',
@@ -166,7 +170,8 @@ const local: App.I18n.Schema = {
     'system_admin-log_login-log': 'Login Log',
     'system_admin-log_operation-log': 'Operation Log',
     system_setting: 'Setting',
-    system_setting_base: 'Base'
+    system_setting_base: 'Base',
+    'system_admin-menu': 'Admin Menu'
   },
   page: {
     login: {
@@ -343,6 +348,39 @@ const local: App.I18n.Schema = {
         form: {
           enabledRemoteLogin:
             '*After closure, all logged in accounts will be forcibly taken offline and can only log in on one device thereafter'
+        }
+      },
+      adminMenu: {
+        title: 'Admin Menu',
+        menuType: 'Menu Type',
+        menuName: 'Menu Name',
+        component: 'Component',
+        routeName: 'Route Name',
+        routePath: 'Route Path',
+        i18nKey: 'I18n Key',
+        icon: 'Icon',
+        status: 'Status',
+        hideInMenu: 'Hide In Menu',
+        keepAlive: 'Keep Alive',
+        pid: 'Parent Menu ID',
+        order: 'Order',
+        isProps: 'Props',
+        type: {
+          constantRoute: 'Constant Route',
+          defaultRoute: 'Default Route',
+          permissionRoute: 'Permission Route'
+        },
+        addAdminMenu: 'Add Menu',
+        editAdminMenu: 'Edit Menu',
+        addChildAdminMenu: 'Add Sub Menu',
+        form: {
+          menuName: 'Please enter menu name',
+          component: 'Please enter component',
+          routeName: 'Please enter route name',
+          routePath: 'Please enter route path',
+          i18nKey: 'Please enter i18n key',
+          icon: 'Please enter icon',
+          order: 'Please enter order'
         }
       }
     }

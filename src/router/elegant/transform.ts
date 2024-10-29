@@ -173,6 +173,7 @@ const routeMap: RouteMap = {
   "system_admin-log": "/system/admin-log",
   "system_admin-log_login-log": "/system/admin-log/login-log",
   "system_admin-log_operation-log": "/system/admin-log/operation-log",
+  "system_admin-menu": "/system/admin-menu",
   "system_admin-role": "/system/admin-role",
   "system_admin-user": "/system/admin-user",
   "system_setting": "/system/setting",
