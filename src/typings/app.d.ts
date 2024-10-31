@@ -526,6 +526,7 @@ declare namespace App {
           adminRole: {
             title: string;
             name: string;
+            permission: string;
             description: string;
             addAdminRole: string;
             editAdminRole: string;

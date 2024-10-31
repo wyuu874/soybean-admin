@@ -18,7 +18,7 @@ export function fetchGetAdminRoleList(params?: Api.System.AdminRoleSearchParams)
  *
  * @param params 'name'
  */
-export function fetchAddAdminRole(params: Pick<Api.System.AdminRole, 'name' | 'description'>) {
+export function fetchAddAdminRole(params: Pick<Api.System.AdminRole, 'name' | 'description' | 'menus'>) {
   return request({
     url: '/admin-roles',
     method: 'post',
@@ -32,7 +32,7 @@ export function fetchAddAdminRole(params: Pick<Api.System.AdminRole, 'name' | 'd
  * @param id 角色ID
  * @param params 'name'
  */
-export function fetchEditAdminRole(id: number, params: Pick<Api.System.AdminRole, 'name' | 'description'>) {
+export function fetchEditAdminRole(id: number, params: Pick<Api.System.AdminRole, 'name' | 'description' | 'menus'>) {
   return request({
     url: `/admin-roles/${id}`,
     method: 'put',
@@ -156,7 +156,7 @@ export function fetchEditBaseSetting(params: Api.System.BaseSettingEditParams) {
 }
 
 /** GetAdminMenuList */
-export function fetchGetAdminMenuList(params?: Api.Common.CommonSearchParams) {
+export function fetchGetAdminMenuList(params?: Api.System.AdminMenuSearchParams) {
   return request<Api.System.AdminMenuList>({
     url: '/admin-menus',
     method: 'get',

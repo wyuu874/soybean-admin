@@ -133,11 +133,18 @@ declare namespace Api {
    * backend api module: "system"
    */
   namespace System {
+    /** admin role menu */
+    type AdminRoleMenu = {
+      id: number; // 菜单ID
+      checked: number; // 状态：0全选中，1半选中
+    };
+
     /** admin role */
     type AdminRole = Common.CommonRecord<{
       name: string; // 角色名称
       description: string; // 角色描述
       isDefault: boolean; // 是否默认角色
+      menus: AdminRoleMenu[]; // 菜单列表
     }>;
 
     /** admin role search params */
@@ -218,7 +225,7 @@ declare namespace Api {
     /** BaseSetting edit params */
     type BaseSettingEditParams = Pick<BaseSetting, 'enabledRemoteLogin'>;
 
-    /** AdminMenu type */
+    /** admin menu type */
     type AdminMenuType = 0 | 1 | 2;
 
     type AdminMenuPropsOfRoute = Pick<
@@ -226,7 +233,7 @@ declare namespace Api {
       'i18nKey' | 'keepAlive' | 'constant' | 'order' | 'hideInMenu'
     >;
 
-    /** AdminMenu */
+    /** admin menu */
     type AdminMenu = Common.CommonRecord<{
       pid: number; // 父级ID
       menuType: AdminMenuType; // 菜单类型，0常量路由，1默认路由，2权限路由
@@ -239,7 +246,10 @@ declare namespace Api {
     }> &
       AdminMenuPropsOfRoute;
 
-    /** AdminMenu list */
+    /** admin menu search params */
+    type AdminMenuSearchParams = CommonType.RecordNullable<Pick<AdminMenu, 'menuType'> & Common.CommonSearchParams>;
+
+    /** admin menu list */
     type AdminMenuList = Common.PaginatingQueryRecord<AdminMenu>;
   }
 }

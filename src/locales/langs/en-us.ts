@@ -300,6 +300,7 @@ const local: App.I18n.Schema = {
         title: 'Role List',
         name: 'Role Name',
         description: 'Role Description',
+        permission: 'Role Permission',
         addAdminRole: 'Add Role',
         editAdminRole: 'Edit Role',
         form: {
